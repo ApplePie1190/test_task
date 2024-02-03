@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Log in
+{% endblock %}
+
+{% block body %}
+
+<div class="d-flex flex-column pb-3 border-bottom">
+    <div class="mx-auto ">
+        <h1 class="fw-normal text-center">Log in</h1>
+        {% for cat, msg in get_flashed_messages(True) %}
+        <div class="flash {{cat}}">{{msg}}</div>
+        {% endfor %}
+        <form action="" method="post" class="text-start">
+            <div class="input-group mb-3">
+                <label class="input-group-text">Login: </label>
+                <input class="form-control" type="text" name="username" value="" required>
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text">Password: </label>
+                <input class="form-control" type="password" name="password" value="" required>
+            </div>
+            <p><input type="checkbox" name="remaindme"> Remember me</p>
+            <button type="submit" class="btn btn-outline-secondary mb-3">Log in</button><br>
+            <a class="link-secondary text-decoration-none" href="{{url_for('register')}}">Registration</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

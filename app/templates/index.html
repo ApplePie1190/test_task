@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Requisites
+{% endblock %}
+
+{% block body %}
+<div class="d-flex flex-column pb-3 border-bottom">
+    <div class="mx-auto">
+        <h1 class="fw-normal text-center">Requisites</h1><br>
+        <div id="table-container">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="sortable" data-column="id" data-order="asc">ID<span
+                                class="sort-indicator">&#x2191;</span><br><input type="text"
+                                class="form-control column-search" data-column="id" placeholder="Search..."></th>
+                        <th class="sortable" data-column="payment_type" data-order="asc">Payment type<span
+                                class="sort-indicator"></span><br><input type="text" class="form-control column-search"
+                                data-column="payment_type" placeholder="Search..."></th>
+                        <th class="sortable" data-column="account_type" data-order="asc">Account type<span
+                                class="sort-indicator"></span><br><input type="text" class="form-control column-search"
+                                data-column="account_type" placeholder="Search..."></th>
+                        <th class="sortable" data-column="owner_name" data-order="asc">Owner name<span
+                                class="sort-indicator"></span><br><input type="text" class="form-control column-search"
+                                data-column="owner_name" placeholder="Search..."></th>
+                        <th class="sortable" data-column="phone_number" data-order="asc">Phone<span
+                                class="sort-indicator"></span><br><input type="text" class="form-control column-search"
+                                data-column="phone_number" placeholder="Search..."></th>
+                        <th class="sortable" data-column="limit" data-order="asc">Limit<span
+                                class="sort-indicator"></span><br><input type="text" class="form-control column-search"
+                                data-column="limit" placeholder="Search..."></th>
+                        <th class="sortable" data-column="account" data-order="asc">Account<span
+                                class="sort-indicator"></span><br><input type="text" class="form-control column-search"
+                                data-column="account" placeholder="Search..."></th>
+                    </tr>
+                </thead>
+                <tbody id="requisites-table">
+                    {% for r in requisites %}
+                    <tr>
+                        <td>{{ r.id }}</td>
+                        <td>{{ r.payment_type }}</td>
+                        <td>{{ r.account_type }}</td>
+                        <td>{{ r.owner_name }}</td>
+                        <td>{{ r.phone_number }}</td>
+                        <td>{{ r.limit }}</td>
+                        <td>{{ r.account }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/requisites.js') }}"></script>
+{% endblock %}

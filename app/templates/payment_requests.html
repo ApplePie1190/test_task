@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Payment requests
+{% endblock %}
+
+{% block body %}
+<div class="d-flex flex-column pb-3 border-bottom">
+    <div class="mx-auto">
+        <h1 class="fw-normal text-center">Payment requests</h1><br>
+        <div id="table-container">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Account</th>
+                    </tr>
+                </thead>
+                {% for p in payment_requests %}
+                <tbody>
+                    <tr>
+                        <td>{{ p.id }}</td>
+                        <td>{{ p.amount }}</td>
+                        <td>{{ p.status }}</td>
+                        <td>{{ p.requisites.account }}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+    {% endblock %}
